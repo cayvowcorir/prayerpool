@@ -1,0 +1,60 @@
+{{!< default}}
+<div class="row">
+	<div class="col s12 m12 l12">
+		
+		<div class="card">
+			
+			<div class="card-content">
+				<div class="center-align">
+					<span class="card-title">Prayer Request</span>
+				</div>
+				<br> <br>
+				<div class="container">
+					<div class="row">
+						<form method="POST" class="col s12">
+							<div class="row">
+								<div class="input-field col s12">
+									<input validate required name="title" id="title" type="text" class="validate">
+									<label for="title">Title</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s12">
+									<textarea validate required name="description" id="textarea1" class="materialize-textarea"></textarea>
+									<label for="textarea1">Prayer Item Description</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s6">
+									<select required name="scope" class="form-control">
+										<option selected="public" value="public"> Post to Public</option>
+										<option value="group">Post to  Group</option>
+										<option value="individual">Send to Individual</option>
+									</select>
+								</div>
+								<div class="input-field col s6">
+									<p>
+										<input name="anonymous" value="true" type="checkbox" id="anonymous" />
+										<label for="checkbox_anonymous">Anonymous</label>
+									</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s12">
+									<input name="group_name" id="group_name" type="text" class="validate">
+									<label for="group_name">Group Name</label>
+								</div>
+							</div>
+							<br><br>
+							<div class="center-align">
+								<input id="submit_prayer" class="btn btn-default" type="submit" value="Submit Prayer Request" >
+							</div>
+						</form>
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+</div>

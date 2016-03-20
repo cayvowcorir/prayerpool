@@ -1,0 +1,49 @@
+<div class="card">
+	<div class="card-content">
+		<div>
+			<h5 style="color: #00BCD4;" class="center-align internal-header">Sign In</h5>
+		</div>
+		{{#if user}}
+		<div class=" container auth-box">
+			<div class="row">
+				<div class="col s5">
+					<img src="/images/logo-signup.png">
+				</div>
+				<div class="col s7">
+					<h6>You are already signed in as {{user.email}}</h6>
+					<br>
+					<p>Go to your <a href="/">homepage</a></p>
+					<br>
+					<br>
+				</div>
+			</div>
+		</div>
+		{{else}}
+		<div class=" container auth-box">
+			<div class="row">
+				<div class="col s5">
+					<img src="/images/logo-signup.png">
+				</div>
+				<div class="col s7">
+					<form method="post" novalidate="novalidate" class="auth-form">
+						<input type="hidden" name="{{{csrf_token_key}}}" value="{{{csrf_token_value}}}"/>
+						<div class="input-field">
+							<label for="email">Email</label>
+							<input required type="email" name="email" id="email"/>
+						</div>
+						<div class="input-field">
+							<label for="password">Password</label>
+							<input required type="password" name="password" id="password"/>
+						</div>
+						<br><br>
+						<button type="submit" class="btn btn-primary">Sign In</button>
+					</form>
+					<br>
+					<br>
+				</div>
+			</div>
+		</div>
+		
+		{{/if}}
+	</div>
+</div>

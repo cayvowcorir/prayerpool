@@ -1,0 +1,64 @@
+{{#if user}}
+<div class=" card z-depth-5" id="registration_form">
+	<div>
+		<h5 style="color: #00BCD4;" class="center-align internal-header">Sign up</h5>
+	</div>
+	<form method="POST" action="/signup" class="col s12 card-content">
+		<div class="row"> 
+			<div class="input-field col s10">
+				<i class="material-icons medium prefix">account_circle</i>
+				<input id="username" name="username" length="10" type="text" required>
+				<label for="username">Username</label>
+			</div>
+			<div class="col s1">
+				<img id="username_spinner" ng-show="loading_user" src="/images/small_spinner.gif"></img>
+			</div>
+			<div class="col s1">
+				<div style="margin-top:30px;"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s10">
+				<i class="material-icons medium prefix">email</i>
+				<input name="email" id="email" type="email" required>
+				<label for="email">Email</label>
+			</div>
+			<div class="col s1">
+				<img id="email_spinner" ng-show="loading_email" src="/images/small_spinner.gif"></img>
+			</div>
+			<div class="col s1">
+				<div style="margin-top:30px;"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons medium prefix">lock_outline</i>
+				<input name="password" id="password" ng-model="user.password" name="password" type="password" required></input>
+				<label for="password">Password</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons medium prefix">lock_outline</i>
+				<input id="password2" type="password" class="validate" required>
+				<label for="password2">Repeat Password</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<input ng-model="terms" required type="checkbox" id="terms_agreement" />
+				<label for="terms_agreement">I agree to the <a href="#">terms and conditions</a></label>
+			</div>
+		</div>
+
+		<div style="margin-top: 30px;" class="row center-align" >
+			<input type="submit" value="Register" class="waves-effect waves-light btn "/>
+		</div>
+	</form>
+	<div class="center-align">
+		<p>Already have an account? <a ng-href="/login">Sign in</a></p>
+	</div>
+</div>
+{{else}} {{/if}}

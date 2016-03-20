@@ -1,0 +1,22 @@
+{
+  "name": "prayerpool",
+  "description": "",
+  "main": "keystone.js",
+  "authors": [
+    "cayvowcorir <cayvowcorir@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "prayerpool.org",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fullcalendar": "^2.6.1"
+  }
+}

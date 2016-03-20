@@ -1,0 +1,55 @@
+#header {
+	margin-top: 30px;
+}
+
+#footer {
+	margin-top: 30px;
+	border-top: 1px solid #eeeeee;
+	padding-top: 30px;
+	color: #777777;
+}
+
+.gallery-image img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+#side_bar{
+	margin-top: 140px;
+}
+#side_bar a{
+	color: black;
+}
+.material-icons{
+	color: #b2b2b2 !important;
+}
+.glyphicon-ok{
+	color: lime !important;
+}
+.glyphicon-remove{
+	color: red !important;
+}
+.glyphicon-exclamation-sign{
+	color: red !important;
+}
+body{
+	background-color: #eee;
+}
+#cartAdd_img{
+	width: 20px;
+	height: 20px;
+	margin-bottom: -5px;
+	margin-right: 5px;
+}
+.fc-center h2{
+	font-size: 28px;
+}
+.fc-day{
+	border-right: none !important;
+border-left: none !important;
+border-top: none !important;
+}
+.fc-day-number{
+	border-bottom: none !important;
+
+}
