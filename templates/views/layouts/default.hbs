@@ -38,13 +38,13 @@
 						{{#if user}}
 						<li {{#ifeq section "home"}} class="active"{{else}}{{/ifeq}}><a href="/">Home</a></li>
 						<li {{#ifeq section "prayer_groups"}} class="active"{{else}}{{/ifeq}}><a href="/groups/prayer">Prayer Groups</a></li>
-						<li {{#ifeq section "prayer_calender"}}><a href="/calendar">Prayer Calender</a></li>
-						<li {{#ifeq section "testimonies"}}><a href="/testimonies">Testimonies</a></li>
-						<li {{#ifeq section "prayer_cart"}}><a id="cart_icon" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Prayer Cart" href="/cart"><img style="width: 30px; height:30px; margin-top: 15px;" src="/images/cart.png"></a></li>						
-						<li><a href="/signout">Signout</a></li>
+						<li {{#ifeq section "prayer_calender"}}class="active"{{else}}{{/ifeq}}><a href="/calendar">Prayer Calender</a></li>
+						<li {{#ifeq section "testimonies"}}class="active"{{else}}{{/ifeq}}><a href="/testimonies">Testimonies</a></li>
+						<li {{#ifeq section "prayer_cart"}}class="active"{{else}}{{/ifeq}}><a id="cart_icon" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Prayer Cart" href="/cart"><img style="width: 30px; height:30px; margin-top: 15px;" src="/images/cart.png"></a></li>						
+						<li><a href="/signout">Sign Out</a></li>
 						{{else}}
-						<li {{#ifeq section "singup"}} class="active"{{else}}{{/ifeq}}><a href="/">Sign Up</a></li>
-						<li {{#ifeq section "login"}} class="active"{{else}}{{/ifeq}}><a href="/">Sign In</a></li>
+						<li {{#ifeq section "singup"}} class="active"{{else}}{{/ifeq}}><a href="/signup">Sign Up</a></li>
+						<li {{#ifeq section "login"}} class="active"{{else}}{{/ifeq}}><a href="/login">Sign In</a></li>
 
 						{{/if}}
 					</ul>

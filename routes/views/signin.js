@@ -1,6 +1,5 @@
 var keystone = require('keystone');
 var session = require('./session');
-console.log(keystone.csrf);
 
 exports = module.exports = function(req, res) {
 	
@@ -13,6 +12,10 @@ exports = module.exports = function(req, res) {
 	locals.section = 'login';
 	
 	if (req.method === 'POST') {
+		view.on({ username: 'Kevin' }, function(next) {
+	      console.log('Hello Admin!');
+	      next();
+	  });
 
 		if (!keystone.security.csrf.validate(req)) {
 			req.flash('error', {detail:'There was an error with your request, please try again.'});
@@ -33,14 +36,14 @@ exports = module.exports = function(req, res) {
 			} else if ('function' === typeof keystone.get('signin redirect')) {
 				keystone.get('signin redirect')(user, req, res);
 			} else {
-				res.redirect('/keystone');
+				res.redirect('/');
 			}
 
 		};
 
 		var onFail = function (err) {
-			var message = (err && err.message) ? err.message : 'Sorry, that email and password combo are not valid.';
-			req.flash('error', message );
+			var message = (err && err.message) ? err.message : 'Sorry, that email and password combination are not valid.';
+			req.flash('error', {detail:message} );
 			view.render('signin');
 		};
 
@@ -49,6 +52,8 @@ exports = module.exports = function(req, res) {
 	} else {
 		view.render('signin');
 	}
+
+	
 	
 	// Render the view
 	

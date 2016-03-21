@@ -1,5 +1,4 @@
 var keystone = require('keystone');
-var async = require('async');
 
 exports = module.exports = function(req, res) {
 	
@@ -7,35 +6,37 @@ exports = module.exports = function(req, res) {
 	var locals = res.locals;
 	
 	// Init locals
-	locals.section = 'blog';
+	locals.section = 'testimonies';
 	locals.filters = {
 		category: req.params.category
 	};
 	locals.data = {
 		posts: [],
-		categories: []
+		category: []
 	};
-	
+
+
+
 	// Load all categories
 	view.on('init', function(next) {
+		// keystone.list('PostCategory').model.findOne({key: 'testimonies'}).exec(function(err, results){
+
+		// 	locals.category.id=results.id;
+		// 	locals.data.categories = results;
+		// });
+
+		// keystone.list('Post').model.count().where('categories').in(locals.category.id).exec(function(err, count) {
+		// 	locals.data.categories.postCount = count;
+		// 	next(err);
+		// });
 		
-		keystone.list('PostCategory').model.find().sort('name').exec(function(err, results) {
-			
-			if (err || !results.length) {
-				return next(err);
-			}
-			
-			locals.data.categories = results;
-			
-			// Load the counts for each category
-			async.each(locals.data.categories, function(category, next) {
-				
-				keystone.list('Post').model.count().where('categories').in([category.id]).exec(function(err, count) {
-					category.postCount = count;
-					next(err);
-				});
-				
-			}, function(err) {
+
+		keystone.list('PostCategory').model.findOne({key: 'testimonies'}).exec(function(err, results) {			
+
+			locals.data.category = results;
+
+			keystone.list('Post').model.count().where('categories').equals(locals.data.category.id).exec(function(err, count) {
+				locals.data.category.postCount = count;
 				next(err);
 			});
 			
@@ -81,6 +82,6 @@ exports = module.exports = function(req, res) {
 	});
 	
 	// Render the view
-	view.render('blog');
+	view.render('testimonies');
 	
 };

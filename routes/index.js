@@ -37,13 +37,12 @@ exports = module.exports = function(app) {
 	// Views
 	app.get('/', routes.views.index);
 	app.all('/prayer-request', routes.views.newrequest);
-	app.get('/blog/:category?', routes.views.blog);
-	app.get('/blog/post/:post', routes.views.post);
+	app.get('/testimonies', routes.views.testimonies);
+	app.get('/testimonies/post/:post', routes.views.post);
 	app.get('/gallery', routes.views.gallery);
 	app.all('/signup', routes.views.signup);
 	app.all('/login', routes.views.signin);
-
-	console.log(keystone.get('User'));
+	app.all('/signout', routes.views.signout);
 	keystone.redirect('/landing', 'index.html');
 	app.get('/calendar', routes.views.calendar);
 	app.all('/contact', routes.views.contact);

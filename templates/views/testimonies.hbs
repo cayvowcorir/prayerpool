@@ -1,0 +1,49 @@
+<div>
+	<div class="row">
+		<div class="col s12 m12 l12">
+			<div class="card z-depth-0">
+				<br>
+				<div>
+					<h5 style="color: #00BCD4;" class="center-align internal-header">Testimonies</h5>
+				</div>
+				<br>
+				<div class="card-content">
+					<div class="inner-container">
+						{{# each data.posts.results}}
+						<div class="media">
+							<div class="media-left">
+								<a href="{{postUrl slug}}">
+									<img id="testimony_pic" class="media-object thumbnail" src="/images/placeholder.png" alt="image">
+								</a>
+							</div>
+							<div class="media-body">
+								<span class="card-title"><a href="{{postUrl slug}}">{{{title}}}</a></span>
+								<p>{{{content.extended}}}</p>
+								<p> <a href="{{postUrl slug}}">Read more...</a></p>
+								<div class="right-align">
+									{{#if author.name.first}} By {{author.name.first}}{{else}}By Anonymous{{/if}} on <span>{{publishedDate}}</span>
+								</div>
+								<br>
+								<div id="testimony_actions" class="right-align">
+									<a href='' class="tooltipped btn btn-default" data-position="top" data-delay="30" data-tooltip="Star"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>
+									<a href='' class="tooltipped btn btn-default" data-position="top" data-delay="30" data-tooltip="Like"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
+									<a href='' class="tooltipped btn btn-default" data-position="top" data-delay="30" data-tooltip="Comment"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>
+								</div>
+							</div>
+							<div>
+								<br>
+								<div class="card-action">
+									
+								</div>
+							</div>
+							
+							
+							
+							{{/each}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{{>pagination}}
+	</div>

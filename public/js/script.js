@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
     $('#cart_icon').popover();
 
@@ -26,4 +27,8 @@ function toastSuccess(string) {
 };
 function toastError(string) {
     toastr.error(string);
+};
+
+function addToCart(){
+	console.log('sss');
 };

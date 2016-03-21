@@ -22,8 +22,18 @@ exports = module.exports = function(req, res) {
 		res.redirect('/landing');
 	}
 	else{
+		view.on('do', function(next) {
+	        console.log('Hello Admin!');
+	        next();
+	    });
 		view.render('index');
+	};
 
-	}
+
+
 	
 };
+exports.do=function(){
+	console.log('ss');
+};
+
