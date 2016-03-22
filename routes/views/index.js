@@ -1,5 +1,4 @@
 var keystone = require('keystone');
-var prayeritems=keystone.list('PrayerRequest');
 
 exports = module.exports = function(req, res) {
 	
@@ -9,31 +8,49 @@ exports = module.exports = function(req, res) {
 	locals.data = {
 		prayeritems: []
 	};
-	
+
 	// locals.section is used to set the currently selected
 	// item in the header navigation.
 	locals.section = 'home';
-	prayeritems.model.find().exec(function(err, results){
-		locals.data.prayeritems=results;
+
+	view.on('init', function(next) {
+		
+		var q = keystone.list('PrayerRequest').model.find();
+		
+		q.exec(function(err, result) {
+			locals.data.prayeritems = result;
+			next(err);
+		});
+		
 	});
-	keystone.redirect('/contact');
+
+	view.on('post', {addToCart: 'true'}, function(next){
+		var q = keystone.list('PrayerRequest').model.findOne({
+			id:req.body.id
+		});
+		q.exec(function(err, result) {
+			var prayerCart=keystone.list('PrayerCart');
+			new prayerCart.model({itemName: result.title, completed: false}).save();
+			prayerCart._req_user=req.user;
+			next(err);
+		});
+
+		
+
+		var prayerCart=keystone.list('PrayerCart');
+		
+
+	});
+	
 	// Render the view
 	if(!req.user){
 		res.redirect('/landing');
 	}
 	else{
-		view.on('do', function(next) {
-	        console.log('Hello Admin!');
-	        next();
-	    });
 		view.render('index');
 	};
 
-
-
-	
 };
 exports.do=function(){
 	console.log('ss');
-};
-
+}

@@ -1,5 +1,5 @@
 {{!< default}}
-<div class="container">
+<div>
 	{{# each data.prayeritems}}
 	<div class="row">
 		<div class="col s12 l12 m12">
@@ -8,14 +8,22 @@
 					<span class="card-title">{{title}}</span>
 					<div class="row">
 						<span class="col s5">Requested by: </span>
-						<span class="col s7">Date: {{createdAt}} </span>
+						<div class="right-align">
+						<span >Date: {{createdAt}} </span>
+						</div>
 					</div>		
 					<p>Description: </p>
 					<p>{{description}}</p>
+					<br>
+
+					<div class="right-align">
+					<a id="addToCart" class="waves-effect clickable waves-teal btn-flat" onclick="addToCart('{{id}}')" ><img id="cartAdd_img" src="/images/add.png"></img>Add to Prayer Cart</a>
+					</div>
 				</div>
 				<div class="card-action">
-					<a class="btn  btn-default" href=""><img id="cartAdd_img" src="/images/comment.png"></img>Comment</a>
-					<button onclick="addToCart();" class="btn  btn-default"><img id="cartAdd_img" src="/images/add.png"></img>Add to Prayer Cart</button>					
+					<div class="well">
+						
+					</div>										
 				</div>
 			</div>
 		</div>

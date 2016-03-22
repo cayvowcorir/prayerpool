@@ -35,7 +35,7 @@ var routes = {
 exports = module.exports = function(app) {
 	
 	// Views
-	app.get('/', routes.views.index);
+	app.all('/', routes.views.index);
 	app.all('/prayer-request', routes.views.newrequest);
 	app.get('/testimonies', routes.views.testimonies);
 	app.get('/testimonies/post/:post', routes.views.post);

@@ -229,6 +229,11 @@ module.exports = function() {
 	_helpers.categoryUrl = function(categorySlug, options) {
 		return ('/testimonies/' + categorySlug);
 	};
+
+	_helpers.addToCart=function(string, options){
+		console.log('here');
+		// routesindex.addToCart()
+	}
 	
 	// ### Pagination Helpers
 	// These are helpers used in rendering a pagination system for content
@@ -276,7 +281,6 @@ module.exports = function() {
 		});
 		return html;
 	};
-
         // special helper to ensure that we always have a valid page url set even if
         // the link is disabled, will default to page 1
         _helpers.paginationPreviousUrl = function(previousPage, totalPages){
